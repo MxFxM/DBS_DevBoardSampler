@@ -24,21 +24,9 @@ void setup() {
   pinMode(A1, INPUT);
   pinMode(A2, INPUT);
   pinMode(A3, INPUT);
-
-  pinMode(LED_BUILTIN, OUTPUT);
   */
 
   /*
-  // adc 0
-  adc->adc0->setAveraging(1);
-  adc->adc0->setResolution(16);
-  adc->adc0->setConversionSpeed(ADC_CONVERSION_SPEED::VERY_HIGH_SPEED);
-  adc->adc0->setSamplingSpeed(ADC_SAMPLING_SPEED::VERY_HIGH_SPEED);
-  // adc 1
-  adc->adc1->setAveraging(1);
-  adc->adc1->setResolution(16);
-  adc->adc1->setConversionSpeed(ADC_CONVERSION_SPEED::VERY_HIGH_SPEED);
-  adc->adc1->setSamplingSpeed(ADC_SAMPLING_SPEED::VERY_HIGH_SPEED);
 
   */
 }
@@ -54,6 +42,9 @@ void loop() {
 
   // this has to be faster than 10us
   if (b_newSamples) { 
+    // prepare data bytes
+    uint8_t message[10];
+
     // start byte
     Serial.write(0x00);
 
@@ -77,6 +68,72 @@ void sample(void) {
   //result2 = adc->analogSyncRead(A2, A3);
 
   b_newSamples = true;
+}
+
+void readConfig(void) {
+  // setup adcs if analog data has to be read
+
+  // read resolution
+  // get byte in answer message
+
+  // adc 0
+  adc->adc0->setAveraging(1);
+  adc->adc0->setResolution(16);
+  adc->adc0->setConversionSpeed(ADC_CONVERSION_SPEED::VERY_HIGH_SPEED);
+  adc->adc0->setSamplingSpeed(ADC_SAMPLING_SPEED::VERY_HIGH_SPEED);
+  // adc 1
+  adc->adc1->setAveraging(1);
+  adc->adc1->setResolution(16);
+  adc->adc1->setConversionSpeed(ADC_CONVERSION_SPEED::VERY_HIGH_SPEED);
+  adc->adc1->setSamplingSpeed(ADC_SAMPLING_SPEED::VERY_HIGH_SPEED);
+
+  // setup analog pins
+  if (false) {
+    pinMode(A0, INPUT);
+  }
+  if (false) {
+    pinMode(A1, INPUT);
+  }
+  if (false) {
+    pinMode(A2, INPUT);
+  }
+  if (false) {
+    pinMode(A3, INPUT);
+  }
+  if (false) {
+    pinMode(A4, INPUT);
+  }
+  if (false) {
+    pinMode(A5, INPUT);
+  }
+  if (false) {
+    pinMode(A6, INPUT);
+  }
+  if (false) {
+    pinMode(A7, INPUT);
+  }
+  if (false) {
+    pinMode(A8, INPUT);
+  }
+  if (false) {
+    pinMode(A9, INPUT);
+  }
+  if (false) {
+    pinMode(A10, INPUT);
+  }
+  if (false) {
+    pinMode(A11, INPUT);
+  }
+  if (false) {
+    pinMode(A12, INPUT);
+  }
+  if (false) {
+    pinMode(A13, INPUT);
+  }
+
+
+
+  // setup digital pins
 }
 
 void startSampling(void) {
